@@ -78,7 +78,7 @@ function App() {
     <div className="App">
       <Header />
       <main className="contenu">
-        <Meteo /> { }
+        <Meteo />
         
         <Recherche valeur={recherche} onChange={setRecherche} />
         <p className="resultat-recherche">
@@ -100,7 +100,9 @@ function App() {
         {ligneSelectionnee && <DetailLigne ligne={ligneSelectionnee} />}
         
         <Carte />
-        <SignalerIncident /> { }
+        
+        {/* --- MODIFICATION ICI : On passe le tableau des lignes au composant --- */}
+        <SignalerIncident listeDesLignes={lignes} /> 
       </main>
       <Footer />
     </div>
