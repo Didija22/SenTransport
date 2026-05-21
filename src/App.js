@@ -6,6 +6,8 @@ import LigneBus from './LigneBus';
 import DetailLigne from './DetailLigne';
 import Footer from './Footer';
 import Carte from './Carte';
+import Meteo from './Meteo';
+import SignalerIncident from './SignalerIncident';
 
 function App() {
   const [lignes, setLignes] = useState([]);
@@ -76,10 +78,13 @@ function App() {
     <div className="App">
       <Header />
       <main className="contenu">
+        <Meteo /> { }
+        
         <Recherche valeur={recherche} onChange={setRecherche} />
         <p className="resultat-recherche">
           {lignesFiltrees.length} ligne{lignesFiltrees.length > 1 ? 's' : ''} trouvée{lignesFiltrees.length > 1 ? 's' : ''}
         </p>
+        
         {lignesFiltrees.map(ligne => (
           <LigneBus
             key={ligne.id}
@@ -91,8 +96,11 @@ function App() {
             onClick={() => handleClickLigne(ligne)}
           />
         ))}
+        
         {ligneSelectionnee && <DetailLigne ligne={ligneSelectionnee} />}
+        
         <Carte />
+        <SignalerIncident /> { }
       </main>
       <Footer />
     </div>
